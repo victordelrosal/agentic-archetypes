@@ -27,8 +27,12 @@
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1.0);
 }
 
+/* Dark mode via class or system preference */
+html[data-theme="dark"],
+html:not([data-theme="light"]):root { }
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  html:not([data-theme="light"]) {
     --label-primary: #FFFFFF;
     --label-secondary: rgba(235,235,245,0.6);
     --label-tertiary: rgba(235,235,245,0.3);
@@ -42,6 +46,21 @@
     --color-indigo: #5E5CE6;
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
   }
+}
+
+html[data-theme="dark"] {
+  --label-primary: #FFFFFF;
+  --label-secondary: rgba(235,235,245,0.6);
+  --label-tertiary: rgba(235,235,245,0.3);
+  --bg-primary: #000000;
+  --bg-secondary: #1C1C1E;
+  --separator: rgba(84,84,88,0.6);
+  --color-blue: #0A84FF;
+  --color-green: #30D158;
+  --color-orange: #FF9F0A;
+  --color-red: #FF453A;
+  --color-indigo: #5E5CE6;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,9 +98,12 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  .hero-badge {
+  html:not([data-theme="light"]) .hero-badge {
     background: rgba(10,132,255,0.15);
   }
+}
+html[data-theme="dark"] .hero-badge {
+  background: rgba(10,132,255,0.15);
 }
 
 .hero h1 {
@@ -138,9 +160,12 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  .btn-secondary {
+  html:not([data-theme="light"]) .btn-secondary {
     background: rgba(10,132,255,0.15);
   }
+}
+html[data-theme="dark"] .btn-secondary {
+  background: rgba(10,132,255,0.15);
 }
 
 .btn-secondary:hover { opacity: 0.88; }
@@ -244,9 +269,12 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  .skill-tag {
+  html:not([data-theme="light"]) .skill-tag {
     background: rgba(10,132,255,0.12);
   }
+}
+html[data-theme="dark"] .skill-tag {
+  background: rgba(10,132,255,0.12);
 }
 
 /* Features */
@@ -324,9 +352,12 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  .step-content code {
+  html:not([data-theme="light"]) .step-content code {
     background: rgba(10,132,255,0.12);
   }
+}
+html[data-theme="dark"] .step-content code {
+  background: rgba(10,132,255,0.12);
 }
 
 /* CTA */
@@ -367,6 +398,66 @@ body {
   color: var(--color-blue);
 }
 
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 9999px;
+  background: var(--bg-secondary);
+  color: var(--label-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 150ms var(--ease-default),
+              background 300ms var(--ease-default),
+              color 300ms var(--ease-default);
+  box-shadow: var(--shadow-sm);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.theme-toggle:hover {
+  color: var(--label-primary);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 300ms var(--ease-spring);
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon { display: none; }
+
+/* Show moon in light mode (clicking goes to dark) */
+html:not([data-theme]) .theme-toggle .icon-moon { display: block; }
+html:not([data-theme]) .theme-toggle .icon-sun { display: none; }
+html[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+html[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* System dark: show sun by default (clicking goes to light) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .theme-toggle .icon-sun { display: block; }
+  html:not([data-theme]) .theme-toggle .icon-moon { display: none; }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .hero { padding: 48px 20px 44px; }
@@ -380,6 +471,24 @@ body {
 </style>
 </head>
 <body>
+
+<!-- Theme toggle -->
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
 
 <!-- Hero -->
 <section class="hero">
@@ -598,5 +707,35 @@ body {
   </p>
 </footer>
 
+<script>
+(function() {
+  var toggle = document.getElementById('theme-toggle');
+  var html = document.documentElement;
+  var stored = localStorage.getItem('theme');
+
+  // Apply stored preference on load
+  if (stored) {
+    html.setAttribute('data-theme', stored);
+  }
+
+  toggle.addEventListener('click', function() {
+    var current = html.getAttribute('data-theme');
+    var isDark;
+
+    if (current === 'dark') {
+      isDark = true;
+    } else if (current === 'light') {
+      isDark = false;
+    } else {
+      // No explicit theme set; check system preference
+      isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    var next = isDark ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+})();
+</script>
 </body>
 </html>
