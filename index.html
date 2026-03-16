@@ -398,6 +398,168 @@ html[data-theme="dark"] .step-content code {
   color: var(--color-blue);
 }
 
+/* Pain points */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pain-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+.pain-card .pain-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.pain-card h3 {
+  font: 600 17px/1.3 var(--font-system);
+  margin-bottom: 6px;
+}
+
+.pain-card p {
+  font: 400 15px/1.4 var(--font-system);
+  color: var(--label-secondary);
+}
+
+.pain-card .pain-before {
+  font: 400 14px/1.5 var(--font-system);
+  color: var(--label-tertiary);
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--separator);
+}
+
+.pain-card .pain-after {
+  font: 500 14px/1.5 var(--font-system);
+  color: var(--color-green);
+  margin-top: 4px;
+}
+
+/* How it works (flow) */
+.flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.flow-step {
+  flex: 1;
+  min-width: 140px;
+  max-width: 180px;
+  text-align: center;
+  padding: 0 8px;
+  position: relative;
+}
+
+.flow-step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 24px;
+}
+
+.flow-step h3 {
+  font: 600 15px/1.3 var(--font-system);
+  margin-bottom: 4px;
+}
+
+.flow-step p {
+  font: 400 13px/1.4 var(--font-system);
+  color: var(--label-secondary);
+}
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  color: var(--label-tertiary);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .flow { flex-direction: column; align-items: center; gap: 8px; }
+  .flow-arrow { transform: rotate(90deg); padding-top: 0; }
+  .flow-step { max-width: 240px; }
+}
+
+/* Use cases */
+.usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.usecase-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+.usecase-label {
+  display: inline-block;
+  font: 600 12px/1 var(--font-system);
+  color: var(--color-blue);
+  background: rgba(0,122,255,0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .usecase-label {
+    background: rgba(10,132,255,0.12);
+  }
+}
+html[data-theme="dark"] .usecase-label {
+  background: rgba(10,132,255,0.12);
+}
+
+.usecase-card h3 {
+  font: 600 17px/1.3 var(--font-system);
+  margin-bottom: 8px;
+}
+
+.usecase-scenario {
+  font: 400 15px/1.5 var(--font-system);
+  color: var(--label-secondary);
+  margin-bottom: 12px;
+}
+
+.usecase-result {
+  font: 400 14px/1.5 var(--font-mono);
+  color: var(--label-secondary);
+  background: var(--bg-primary);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.usecase-result .cmd {
+  color: var(--color-blue);
+  font-weight: 600;
+}
+
 /* Theme toggle */
 .theme-toggle {
   position: fixed;
@@ -504,6 +666,43 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   </div>
 </section>
 
+<!-- Pain points -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>The problem</h2>
+      <p>You know AI can help. But between the blank prompt and a running business, there's a gap.</p>
+    </div>
+    <div class="pain-grid">
+
+      <div class="pain-card">
+        <span class="pain-icon">&#128173;</span>
+        <h3>You don't know what to ask</h3>
+        <p>Claude Code is powerful, but it's a blank canvas. You open the terminal, type "hello," and then what? No structure, no workflow, no starting point.</p>
+        <div class="pain-before">Before: staring at a blinking cursor</div>
+        <div class="pain-after">After: /new-lead, /invoice, /status</div>
+      </div>
+
+      <div class="pain-card">
+        <span class="pain-icon">&#128260;</span>
+        <h3>Nothing carries over</h3>
+        <p>Every session starts from zero. Your AI doesn't remember yesterday's clients, last week's proposals, or overdue follow-ups. You repeat yourself constantly.</p>
+        <div class="pain-before">Before: re-explaining context every session</div>
+        <div class="pain-after">After: "Morning. 2 follow-ups due, 1 proposal in draft."</div>
+      </div>
+
+      <div class="pain-card">
+        <span class="pain-icon">&#129504;</span>
+        <h3>AI is a tool, not a team</h3>
+        <p>You use AI for one-off tasks: "write this email," "summarize that doc." But there's no coordination, no delegation, no operational layer. It's a tool, not a system.</p>
+        <div class="pain-before">Before: one task at a time, no big picture</div>
+        <div class="pain-after">After: an orchestrator that delegates to specialists</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- What's an archetype -->
 <section class="section">
   <div class="container">
@@ -521,6 +720,41 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
       &nbsp;&nbsp;templates/<span class="dim"> .......... domain docs</span><br>
       &nbsp;&nbsp;.ops/<span class="dim"> ............... state &amp; history</span><br>
       &nbsp;&nbsp;workspace/<span class="dim"> .......... output for review</span>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>How it works</h2>
+      <p>You talk. The orchestrator delegates. Agents do the work. You approve.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">&#128172;</div>
+        <h3>You speak</h3>
+        <p>"Write a proposal for Acme Corp"</p>
+      </div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">&#129302;</div>
+        <h3>Orchestrator routes</h3>
+        <p>CLAUDE.md determines which agents to involve</p>
+      </div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">&#9881;&#65039;</div>
+        <h3>Agents execute</h3>
+        <p>Research Analyst briefs, Proposal Writer drafts</p>
+      </div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">&#9989;</div>
+        <h3>You approve</h3>
+        <p>Draft lands in workspace/. Nothing goes out without you.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -598,6 +832,87 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
           <span class="skill-tag">/status</span>
         </div>
       </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Use cases -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What a Monday morning looks like</h2>
+      <p>Real scenarios across all five archetypes.</p>
+    </div>
+    <div class="usecases-grid">
+
+      <div class="usecase-card">
+        <span class="usecase-label">Freelancer</span>
+        <h3>A lead goes cold. You catch it.</h3>
+        <p class="usecase-scenario">You open Claude Code on Monday. The system reads your state and flags: "Sarah from Acme hasn't heard from you in 12 days."</p>
+        <div class="usecase-result">
+          <span class="cmd">/status</span><br>
+          "1 follow-up overdue: Sarah (Acme), 12 days."<br>
+          <span class="cmd">/new-lead</span> follow-up drafted &#8594; workspace/
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <span class="usecase-label">Content Creator</span>
+        <h3>One video becomes five posts.</h3>
+        <p class="usecase-scenario">You published a YouTube video on Friday. Now you need LinkedIn, Twitter, and newsletter versions.</p>
+        <div class="usecase-result">
+          <span class="cmd">/repurpose</span> latest YouTube script<br>
+          &#8594; linkedin-ai-trends.md<br>
+          &#8594; twitter-ai-trends.md<br>
+          &#8594; newsletter-ai-trends.md
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <span class="usecase-label">Remote Worker</span>
+        <h3>Inbox zero before coffee.</h3>
+        <p class="usecase-scenario">42 emails over the weekend. You paste them in. The system triages: 3 urgent, 8 need replies, 31 FYI.</p>
+        <div class="usecase-result">
+          <span class="cmd">/triage</span><br>
+          "3 urgent, 8 need replies, 31 FYI.<br>
+          Drafts for 8 replies in workspace/."
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <span class="usecase-label">E-commerce</span>
+        <h3>New product, listed in minutes.</h3>
+        <p class="usecase-scenario">You source a new product. You give it a name and three features. The system writes the listing, SEO, and meta.</p>
+        <div class="usecase-result">
+          <span class="cmd">/new-product</span> bamboo desk organizer,<br>
+          3 compartments, sustainable<br>
+          &#8594; listing-bamboo-organizer.md + SEO
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <span class="usecase-label">Local Service</span>
+        <h3>Tuesday is empty. Fix it.</h3>
+        <p class="usecase-scenario">Your weekly review shows Tuesday afternoons are consistently unbooked. You ask for a promotion to fill them.</p>
+        <div class="usecase-result">
+          <span class="cmd">/promotion</span> fill Tuesday PM slots<br>
+          &#8594; Google Business post<br>
+          &#8594; Instagram caption<br>
+          &#8594; Email to past clients
+        </div>
+      </div>
+
+      <div class="usecase-card">
+        <span class="usecase-label">All archetypes</span>
+        <h3>End of week. Full picture.</h3>
+        <p class="usecase-scenario">Friday afternoon. You want to know what shipped, what's overdue, and what's coming next week.</p>
+        <div class="usecase-result">
+          <span class="cmd">/weekly-review</span><br>
+          "Shipped 4 items. 1 overdue. Next week:<br>
+          3 items due. 2 leads gone cold."
+        </div>
+      </div>
 
     </div>
   </div>
