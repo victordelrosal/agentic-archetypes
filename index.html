@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Archetypes</title>
+<meta name="description" content="Ready-to-deploy AI organizations for individuals and micro-businesses. 5 archetypes, shared chassis, Claude Code powered.">
+<style>
+:root {
+  --font-system: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", SFMono-Regular, ui-monospace, monospace;
+  --color-blue: #007AFF;
+  --color-green: #34C759;
+  --color-orange: #FF9500;
+  --color-red: #FF3B30;
+  --color-indigo: #5856D6;
+  --label-primary: #000000;
+  --label-secondary: rgba(60,60,67,0.6);
+  --label-tertiary: rgba(60,60,67,0.3);
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F2F2F7;
+  --separator: rgba(60,60,67,0.3);
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.12);
+  --ease-default: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1.0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --label-primary: #FFFFFF;
+    --label-secondary: rgba(235,235,245,0.6);
+    --label-tertiary: rgba(235,235,245,0.3);
+    --bg-primary: #000000;
+    --bg-secondary: #1C1C1E;
+    --separator: rgba(84,84,88,0.6);
+    --color-blue: #0A84FF;
+    --color-green: #30D158;
+    --color-orange: #FF9F0A;
+    --color-red: #FF453A;
+    --color-indigo: #5E5CE6;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font: 400 17px/1.47 var(--font-system);
+  color: var(--label-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px 64px;
+}
+
+.hero-badge {
+  display: inline-block;
+  font: 600 13px/1.4 var(--font-system);
+  color: var(--color-blue);
+  background: rgba(0,122,255,0.1);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-badge {
+    background: rgba(10,132,255,0.15);
+  }
+}
+
+.hero h1 {
+  font: 700 48px/1.1 var(--font-system);
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+
+.hero .subtitle {
+  font: 400 22px/1.35 var(--font-system);
+  color: var(--label-secondary);
+  max-width: 580px;
+  margin: 0 auto 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 17px/1 var(--font-system);
+  color: #FFFFFF;
+  background: var(--color-blue);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 14px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 150ms var(--ease-default), opacity 150ms var(--ease-default);
+}
+
+.btn-primary:hover { opacity: 0.88; }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 17px/1 var(--font-system);
+  color: var(--color-blue);
+  background: rgba(0,122,255,0.1);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 14px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 150ms var(--ease-default), opacity 150ms var(--ease-default);
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-secondary {
+    background: rgba(10,132,255,0.15);
+  }
+}
+
+.btn-secondary:hover { opacity: 0.88; }
+.btn-secondary:active { transform: scale(0.97); }
+
+/* How it works */
+.section {
+  padding: 64px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.section-header h2 {
+  font: 700 34px/1.2 var(--font-system);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  font: 400 17px/1.47 var(--font-system);
+  color: var(--label-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Chassis */
+.chassis {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  font: 400 14px/1.7 var(--font-mono);
+  color: var(--label-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.chassis .highlight {
+  color: var(--color-blue);
+  font-weight: 600;
+}
+
+.chassis .dim {
+  color: var(--label-tertiary);
+}
+
+/* Archetype cards */
+.archetypes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.archetype-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  transition: transform 300ms var(--ease-default), box-shadow 300ms var(--ease-default);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.archetype-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.card-title {
+  font: 700 22px/1.25 var(--font-system);
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  font: 400 15px/1.4 var(--font-system);
+  color: var(--label-secondary);
+  margin-bottom: 16px;
+}
+
+.card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  font: 500 12px/1 var(--font-mono);
+  color: var(--color-blue);
+  background: rgba(0,122,255,0.08);
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .skill-tag {
+    background: rgba(10,132,255,0.12);
+  }
+}
+
+/* Features */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.feature h3 {
+  font: 600 17px/1.3 var(--font-system);
+  margin-bottom: 6px;
+}
+
+.feature p {
+  font: 400 15px/1.4 var(--font-system);
+  color: var(--label-secondary);
+}
+
+/* Setup steps */
+.steps {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.step + .step {
+  border-top: 0.5px solid var(--separator);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: var(--color-blue);
+  color: #FFFFFF;
+  font: 600 15px/32px var(--font-system);
+  text-align: center;
+}
+
+.step-content h3 {
+  font: 600 17px/1.3 var(--font-system);
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  font: 400 15px/1.4 var(--font-system);
+  color: var(--label-secondary);
+}
+
+.step-content code {
+  font: 400 14px/1.5 var(--font-mono);
+  color: var(--color-blue);
+  background: rgba(0,122,255,0.08);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .step-content code {
+    background: rgba(10,132,255,0.12);
+  }
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 64px 20px 80px;
+}
+
+.cta h2 {
+  font: 700 28px/1.2 var(--font-system);
+  margin-bottom: 12px;
+}
+
+.cta p {
+  font: 400 17px/1.47 var(--font-system);
+  color: var(--label-secondary);
+  margin-bottom: 32px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  border-top: 0.5px solid var(--separator);
+}
+
+.footer p {
+  font: 400 13px/1.4 var(--font-system);
+  color: var(--label-tertiary);
+}
+
+.footer a {
+  color: var(--label-secondary);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--color-blue);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero { padding: 48px 20px 44px; }
+  .hero h1 { font-size: 34px; }
+  .hero .subtitle { font-size: 19px; }
+  .section { padding: 44px 0; }
+  .section-header h2 { font-size: 28px; }
+  .chassis { padding: 20px; font-size: 13px; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <span class="hero-badge">Claude Code Powered</span>
+  <h1>Agentic Archetypes</h1>
+  <p class="subtitle">Ready-to-deploy AI organizations for individuals and micro-businesses. Pick your business type. Fill in your details. Open Claude Code. Your business runs.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/victordelrosal/agentic-archetypes" class="btn-primary">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      View on GitHub
+    </a>
+    <a href="#archetypes" class="btn-secondary">See the 5 archetypes</a>
+  </div>
+</section>
+
+<!-- What's an archetype -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>An organization in a box</h2>
+      <p>Each archetype gives you a complete AI operations team: an orchestrator brain, 4 specialized agents, 5 push-button skills, and domain templates. All on a shared chassis.</p>
+    </div>
+    <div class="chassis">
+      <span class="highlight">your-business/</span><br>
+      &nbsp;&nbsp;README.md<span class="dim"> ........... human onboarding</span><br>
+      &nbsp;&nbsp;<span class="highlight">CLAUDE.md</span><span class="dim"> .......... the brain (orchestrator)</span><br>
+      &nbsp;&nbsp;<span class="highlight">config.yaml</span><span class="dim"> ........ your details</span><br>
+      &nbsp;&nbsp;agents/<span class="dim"> ............. 4 AI specialists</span><br>
+      &nbsp;&nbsp;skills/<span class="dim"> ............. 5 slash commands</span><br>
+      &nbsp;&nbsp;templates/<span class="dim"> .......... domain docs</span><br>
+      &nbsp;&nbsp;.ops/<span class="dim"> ............... state &amp; history</span><br>
+      &nbsp;&nbsp;workspace/<span class="dim"> .......... output for review</span>
+    </div>
+  </div>
+</section>
+
+<!-- Archetypes grid -->
+<section class="section" id="archetypes">
+  <div class="container">
+    <div class="section-header">
+      <h2>Five business types. One chassis.</h2>
+      <p>Same structure, different domain. Pick the one that matches how you work.</p>
+    </div>
+    <div class="archetypes-grid">
+
+      <a href="https://github.com/victordelrosal/agentic-archetypes/tree/main/freelancer" class="archetype-card">
+        <span class="card-icon">&#9997;&#65039;</span>
+        <div class="card-title">Freelancer</div>
+        <div class="card-desc">Consultants, designers, developers, writers. Manage clients, write proposals, send invoices.</div>
+        <div class="card-skills">
+          <span class="skill-tag">/new-lead</span>
+          <span class="skill-tag">/draft-proposal</span>
+          <span class="skill-tag">/invoice</span>
+          <span class="skill-tag">/weekly-review</span>
+          <span class="skill-tag">/status</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/victordelrosal/agentic-archetypes/tree/main/content-creator" class="archetype-card">
+        <span class="card-icon">&#127909;</span>
+        <div class="card-title">Content Creator</div>
+        <div class="card-desc">YouTubers, newsletter writers, educators, podcasters. Plan, write, repurpose, distribute.</div>
+        <div class="card-skills">
+          <span class="skill-tag">/new-idea</span>
+          <span class="skill-tag">/draft</span>
+          <span class="skill-tag">/repurpose</span>
+          <span class="skill-tag">/weekly-review</span>
+          <span class="skill-tag">/status</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/victordelrosal/agentic-archetypes/tree/main/remote-worker" class="archetype-card">
+        <span class="card-icon">&#128187;</span>
+        <div class="card-title">Remote Worker</div>
+        <div class="card-desc">Corporate employees, managers, analysts. Triage inbox, prep meetings, write reports.</div>
+        <div class="card-skills">
+          <span class="skill-tag">/triage</span>
+          <span class="skill-tag">/prep</span>
+          <span class="skill-tag">/summarize</span>
+          <span class="skill-tag">/weekly-review</span>
+          <span class="skill-tag">/status</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/victordelrosal/agentic-archetypes/tree/main/ecommerce" class="archetype-card">
+        <span class="card-icon">&#128722;</span>
+        <div class="card-title">E-commerce</div>
+        <div class="card-desc">Shopify owners, online retailers, DTC brands. Customer service, listings, campaigns.</div>
+        <div class="card-skills">
+          <span class="skill-tag">/customer-reply</span>
+          <span class="skill-tag">/new-product</span>
+          <span class="skill-tag">/campaign</span>
+          <span class="skill-tag">/weekly-review</span>
+          <span class="skill-tag">/status</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/victordelrosal/agentic-archetypes/tree/main/local-service" class="archetype-card">
+        <span class="card-icon">&#128197;</span>
+        <div class="card-title">Local Service</div>
+        <div class="card-desc">Gyms, salons, repair shops, coaches. Bookings, customer replies, local marketing.</div>
+        <div class="card-skills">
+          <span class="skill-tag">/new-booking</span>
+          <span class="skill-tag">/customer-reply</span>
+          <span class="skill-tag">/promotion</span>
+          <span class="skill-tag">/weekly-review</span>
+          <span class="skill-tag">/status</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- What you get -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What makes this different</h2>
+      <p>Claude Code is powerful. But it's a blank canvas. Archetypes give you structure.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <span class="feature-icon">&#9889;</span>
+        <h3>First Run onboarding</h3>
+        <p>Reads your config, confirms your profile, seeds your state. Operational in 60 seconds.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">&#9776;</span>
+        <h3>Daily standup</h3>
+        <p>Every session starts with what's pending, what's due, and what needs your attention.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">&#128274;</span>
+        <h3>Never fabricates</h3>
+        <p>If it doesn't know a number, a date, or a detail, it asks. Never invents business data.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">&#128101;</span>
+        <h3>4 AI agents</h3>
+        <p>Specialized team members who know their role, their scope, and their limits.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">&#128736;</span>
+        <h3>5 slash commands</h3>
+        <p>Push-button workflows. Type /invoice, not "can you help me create an invoice."</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">&#128203;</span>
+        <h3>Persistent state</h3>
+        <p>Your business remembers what happened last session. Clients, projects, deadlines carry over.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Getting started -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Get started in 2 minutes</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Clone the repo</h3>
+          <p><code>git clone https://github.com/victordelrosal/agentic-archetypes.git</code></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Pick your archetype</h3>
+          <p>Choose the one that matches your business type: freelancer, content creator, remote worker, e-commerce, or local service.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Fill in config.yaml</h3>
+          <p>Your name, services, rates, tools, preferences. 60 seconds. This personalizes everything.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Open Claude Code</h3>
+          <p><code>cd freelancer && claude</code></p>
+          <p>The system detects it's your first run and walks you through onboarding. You're operational.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>The difference between a tool and an organization is structure.</h2>
+  <p>Archetypes provides the structure. Claude Code provides the intelligence.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/victordelrosal/agentic-archetypes" class="btn-primary">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      Get started on GitHub
+    </a>
+    <a href="mailto:victor@agentive.ie" class="btn-secondary">Want the paid installation?</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>
+    Built by Victor del Rosal &middot;
+    <a href="https://github.com/victordelrosal/agentic-archetypes">GitHub</a> &middot;
+    <a href="mailto:victor@agentive.ie">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>

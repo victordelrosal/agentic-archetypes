@@ -108,7 +108,7 @@ Every archetype inherits these capabilities:
 
 ## Who Made This
 
-**Victor del Rosal** / [Agentive](https://agentive.ie)
+**Victor del Rosal**
 
 Archetypes is a standalone product. For the enterprise/corporate
 framework, see [Chairman](https://github.com/victordelrosal/chairman).
