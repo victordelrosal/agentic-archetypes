@@ -1,0 +1,42 @@
+# ============================================
+# YOUR WORK PROFILE
+# ============================================
+# Fill this out once. Your AI operations team reads
+# this file to personalize everything it does.
+# ============================================
+
+profile:
+  name: ""                    # Your name
+  role: ""                    # Your job title
+  company: ""                 # Company name
+  department: ""              # Your department or team
+
+team:
+  manager: ""                 # Your direct manager
+  direct_reports: []          # People who report to you (if any)
+  key_collaborators: []       # People you work with regularly
+
+work:
+  focus_areas: []             # Your main responsibilities
+                              # e.g. ["product strategy", "client reporting",
+                              #        "team coordination"]
+  recurring_meetings: []      # e.g. ["Monday standup 9am",
+                              #        "Friday all-hands 3pm"]
+
+communication:
+  tone: "professional"        # professional | casual | formal
+  email_signature: ""         # How you sign off emails
+  preferred_channels: []      # e.g. ["email", "slack", "teams"]
+
+location:
+  city: ""
+  country: ""
+  timezone: ""                # e.g. "Europe/Dublin"
+  work_hours: ""              # e.g. "9am-5pm"
+
+tools:
+  email: ""                   # e.g. "outlook", "gmail"
+  calendar: ""                # e.g. "google calendar", "outlook"
+  messaging: ""               # e.g. "slack", "teams"
+  documents: ""               # e.g. "google docs", "notion", "word"
+  other: []

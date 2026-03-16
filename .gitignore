@@ -1,0 +1,9 @@
+.DS_Store
+**/.DS_Store
+.ops/state.json
+.ops/log/*
+.ops/escalations/*
+workspace/*
+!workspace/.gitkeep
+!.ops/log/.gitkeep
+!.ops/escalations/.gitkeep

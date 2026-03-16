@@ -1,0 +1,52 @@
+# ============================================
+# YOUR CREATOR PROFILE
+# ============================================
+# Fill this out once. Your AI content team reads
+# this file to personalize everything it does.
+# ============================================
+
+creator:
+  name: ""                    # Your name
+  brand: ""                   # Your brand/channel name (if different)
+  tagline: ""                 # One-line description of your content
+
+niche:
+  primary: ""                 # Your main topic (e.g. "AI and productivity")
+  secondary: []               # Related topics you cover
+  audience: ""                # Who you create for (e.g. "tech professionals
+                              # who want to work smarter")
+
+platforms:
+  primary: ""                 # Your main platform (e.g. "youtube")
+  active: []                  # All platforms you post on
+                              # e.g. ["youtube", "newsletter", "linkedin",
+                              #        "twitter", "podcast"]
+
+schedule:
+  # How often you post on each platform
+  # e.g. youtube: "weekly, Tuesdays"
+  #      newsletter: "weekly, Fridays"
+  #      linkedin: "3x per week"
+
+voice:
+  tone: ""                    # e.g. "conversational but authoritative"
+  style_notes: ""             # Any specific style preferences
+                              # e.g. "use analogies, avoid jargon,
+                              # always include actionable takeaways"
+  signature_phrases: []       # Phrases or sign-offs you always use
+
+location:
+  city: ""
+  country: ""
+  timezone: ""                # e.g. "Europe/Dublin"
+
+monetization:
+  model: ""                   # e.g. "sponsorships", "courses", "consulting"
+  sponsors: []                # Current sponsors (if any)
+  products: []                # Your products/courses (if any)
+
+tools:
+  editing: ""                 # e.g. "final cut pro", "descript"
+  newsletter: ""              # e.g. "substack", "convertkit", "beehiiv"
+  scheduling: ""              # e.g. "buffer", "later"
+  other: []

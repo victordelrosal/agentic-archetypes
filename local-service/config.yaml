@@ -1,0 +1,58 @@
+# ============================================
+# YOUR BUSINESS PROFILE
+# ============================================
+# Fill this out once. Your AI operations team reads
+# this file to personalize everything it does.
+# ============================================
+
+business:
+  name: ""                    # Business name
+  owner: ""                   # Your name
+  type: ""                    # e.g. "personal training", "plumbing",
+                              # "hair salon", "yoga studio"
+
+services:
+  # List each service with duration and price
+  # e.g.
+  # - name: "1-hour personal training"
+  #   duration: 60            # minutes
+  #   price: 80
+  # - name: "30-min consultation"
+  #   duration: 30
+  #   price: 0
+
+location:
+  address: ""                 # Business address
+  city: ""
+  country: ""
+  timezone: ""
+  service_area: ""            # e.g. "Dublin city centre", "within 20km"
+
+hours:
+  # Business hours per day
+  # e.g.
+  # monday: "9am-6pm"
+  # tuesday: "9am-6pm"
+  # sunday: "closed"
+
+booking:
+  buffer_minutes: 15          # Buffer between appointments
+  max_per_day: 0              # Max appointments per day (0 = no limit)
+  cancellation_policy: ""     # e.g. "24-hour notice required"
+
+communication:
+  tone: "friendly"            # friendly | professional | casual
+  preferred_channels: []      # e.g. ["phone", "whatsapp", "email"]
+
+marketing:
+  channels: []                # e.g. ["google business", "instagram",
+                              #        "facebook", "local flyers"]
+  google_business: ""         # Google Business Profile URL (if any)
+
+reviews:
+  platforms: []               # e.g. ["google", "yelp", "facebook"]
+
+tools:
+  booking: ""                 # e.g. "calendly", "acuity", "manual"
+  payments: ""                # e.g. "square", "stripe", "cash"
+  other: []

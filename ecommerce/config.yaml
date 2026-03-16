@@ -1,0 +1,51 @@
+# ============================================
+# YOUR STORE PROFILE
+# ============================================
+# Fill this out once. Your AI operations team reads
+# this file to personalize everything it does.
+# ============================================
+
+store:
+  name: ""                    # Store name
+  owner: ""                   # Your name
+  platform: ""                # e.g. "shopify", "woocommerce", "etsy"
+  url: ""                     # Store URL
+
+products:
+  category: ""                # What you sell (e.g. "handmade candles")
+  price_range: ""             # e.g. "$15-$60"
+  inventory_size: ""          # e.g. "50 SKUs", "200+ products"
+
+audience:
+  target: ""                  # Who buys from you
+                              # e.g. "women 25-40 who value sustainability"
+  geography: ""               # Where your customers are
+                              # e.g. "US and Canada", "global"
+
+brand:
+  voice: ""                   # e.g. "warm, eco-conscious, premium"
+  tagline: ""                 # One-line brand description
+
+shipping:
+  methods: []                 # e.g. ["standard", "express"]
+  free_threshold: 0           # Free shipping above this amount
+  processing_time: ""         # e.g. "2-3 business days"
+
+policies:
+  returns: ""                 # e.g. "30-day returns, buyer pays shipping"
+  refunds: ""                 # e.g. "full refund within 14 days"
+  exchanges: ""               # e.g. "exchange for same item, different size"
+
+marketing:
+  channels: []                # e.g. ["instagram", "email", "pinterest"]
+  email_platform: ""          # e.g. "klaviyo", "mailchimp"
+
+location:
+  city: ""
+  country: ""
+  timezone: ""
+
+tools:
+  analytics: ""               # e.g. "shopify analytics", "google analytics"
+  customer_service: ""        # e.g. "zendesk", "gorgias", "email"
+  other: []

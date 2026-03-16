@@ -1,0 +1,41 @@
+# ============================================
+# YOUR BUSINESS DETAILS
+# ============================================
+# Fill this out once. Your AI organization reads
+# this file to personalize everything it does.
+# ============================================
+
+business:
+  name: ""                    # Your business name
+  owner: ""                   # Your name
+  tagline: ""                 # One-line description of what you do
+
+services:
+  primary: ""                 # Your main service (e.g. "UX Design")
+  secondary: []               # Other services you offer
+
+rates:
+  hourly: 0                   # Your hourly rate
+  day: 0                      # Your day rate (if applicable)
+  currency: "USD"             # Currency code
+  minimum_project: 0          # Smallest project you'll take
+
+location:
+  city: ""
+  country: ""
+  timezone: ""                # e.g. "Europe/Dublin", "America/Mexico_City"
+
+communication:
+  tone: "professional"        # professional | casual | formal
+  email_signature: ""         # How you sign off emails
+  preferred_channels: []      # e.g. ["email", "slack", "whatsapp"]
+
+payment:
+  terms: "Net 30"             # Payment terms for invoices
+  methods: []                 # e.g. ["bank transfer", "stripe"]
+
+tools:
+  calendar: ""                # e.g. "google calendar", "outlook"
+  email: ""                   # e.g. "gmail", "outlook"
+  invoicing: ""               # e.g. "stripe", "manual"
+  other: []                   # Any other tools you use
